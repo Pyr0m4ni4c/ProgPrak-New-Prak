@@ -70,7 +70,7 @@ public class Strings {
         return erg;
     }
 
-    public static int digitFromChar(char c){
+    private static int digitFromChar(char c){
         int val = 0;
         switch((int)c) {
             case 48: val = 0; break;
@@ -107,7 +107,7 @@ public class Strings {
         char[] reversed = reverse(s, 0, iMax, buffer);
         return new String(reversed);
     }
-    public static char[] reverse(String s, int i, int iMax, char[] buffer) {
+    private static char[] reverse(String s, int i, int iMax, char[] buffer) {
         buffer[i] = s.charAt(iMax -i);
         while(i != iMax){
             i++;
