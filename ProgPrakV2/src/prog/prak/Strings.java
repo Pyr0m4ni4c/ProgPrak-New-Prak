@@ -57,9 +57,12 @@ public class Strings {
             erg = 0;
         }else{
             for(int i = 0; i < s.length(); i++){
-                if(s.charAt(0) == '-'){
-                    erg -= digitFromChar(s.charAt(i)) * Math.pow(radix, s.length() - 1 - i);
-                }else {
+                if(s.charAt(0) == '-') {
+                    erg += digitFromChar(s.charAt(i)) * Math.pow(radix, s.length() -1 - i);
+                    if (i == s.length() - 1) {
+                        erg = erg * (-1);
+                    }
+                }else{
                     erg += digitFromChar(s.charAt(i)) * Math.pow(radix, s.length() - 1 - i);
                 }
             }
@@ -92,8 +95,24 @@ public class Strings {
             case 101: val = 14; break;
             case 70:
             case 102: val = 15; break;
-            default: val = -1;
+            default: break;
         }
         return val;
+    }
+
+    public static String reverse2(String s) {
+        final int len = s.length();
+        final int iMax = len - 1;
+        char[] buffer = new char[len];
+        char[] reversed = reverse(s, 0, iMax, buffer);
+        return new String(reversed);
+    }
+    public static char[] reverse(String s, int i, int iMax, char[] buffer) {
+        buffer[i] = s.charAt(iMax -i);
+        while(i != iMax){
+            i++;
+            reverse(s, i, iMax, buffer);
+        }
+        return buffer;
     }
 }

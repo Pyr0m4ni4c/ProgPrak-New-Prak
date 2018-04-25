@@ -55,4 +55,10 @@ public class StringReverseTest {
     public void parseLongTestAf(){
         assertEquals(175, Strings.parseLong("Af", 16));
     }
+
+    @Test
+    public void reverse2Test(){
+        String msg = "erikafeuertnuruntreuefakire";
+        assertEquals("erikafeuertnuruntreuefakire", Strings.reverse2(msg));
+    }
 }
